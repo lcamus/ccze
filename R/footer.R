@@ -1,16 +1,7 @@
----
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = F)
+## ---- footer
 require(htmltools)
-```
-
-```{r}
 tags$footer(
   hr(),
   p(style="text-align: right;", paste0("Réalisé le ",format(Sys.Date(),"%d %b %Y")))
 )
-```
-
+## ---- end

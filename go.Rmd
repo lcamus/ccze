@@ -7,16 +7,19 @@ output:
 ```{r setup, include=F}
 # Sys.setenv("PATH"=paste0(Sys.getenv("PATH"),";c:\\progra~1\\wkhtmltopdf\\bin"))
 Sys.setlocale("LC_TIME", "French_France.1252")
-knitr::opts_chunk$set(echo = FALSE)
 library(readxl)
 library(highcharter)
 library(dplyr)
 #library(webshot)
 library(htmltools)
+# library(markdown)
+library(knitr)
+# read_chunk("R/data.R")
+read_chunk("R/footer.R")
+knitr::opts_chunk$set(echo = FALSE)
 ```
 ```{r include=T}
-includeCSS("../css/ccze.css")
-
+includeCSS("css/ccze.css")
 ```
 
 ## Performance indicators within the euro area
@@ -27,7 +30,7 @@ includeCSS("../css/ccze.css")
 
 ```{r}
 
-xl.data <- read_xls(path="../data/zai010b.xls", sheet="Feuil4", range="A2:E34")
+xl.data <- read_xls(path="data/zai010b.xls", sheet="Feuil4", range="A2:E34")
 
 c1 <- highchart(width=800) %>%
   hc_add_theme(hc_theme_elementary()) %>%
@@ -48,8 +51,8 @@ c1
 
 </td</tr></table>
 
-
-`r includeMarkdown("rmd/footer.Rmd")`
-
+```{r eval = T}
+<<footer>>
+```
 
 
